@@ -581,18 +581,18 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     cruiseToggles->addItem(new CValueControl("MySafeModeFactor", "DRIVEMODE: SAFE ratio(60%)", "Accel/StopDistance/DecelRatio/Gap control ratio", "../assets/offroad/icon_road.png", 10, 90, 10));
 
     latLongToggles = new ListWidget(this);
-    latLongToggles->addItem(new CValueControl("AutoLaneChangeSpeed", "LaneChangeSpeed(20)", "车线换线速度设置", "../assets/offroad/icon_road.png", 1, 100, 5));
-    latLongToggles->addItem(new CValueControl("UseLaneLineSpeed", "Laneline mode speed(0)", "Lainline mode, lat_mpc control used", "../assets/offroad/icon_shell.png", 0, 200, 5));
-    latLongToggles->addItem(new CValueControl("AdjustLaneOffset", "AdjustLaneOffset(0)cm", "", "../assets/offroad/icon_shell.png", 0, 500, 5));
-    latLongToggles->addItem(new CValueControl("AdjustCurveOffset", "AdjustCurveOffset(0)cm", "", "../assets/offroad/icon_shell.png", 0, 500, 5));
-    latLongToggles->addItem(new CValueControl("PathOffset", "PathOffset", "(-)left, (+)right, when UseLaneLineSpeed > 0", "../assets/offroad/icon_road.png", -50, 50, 1));
+    latLongToggles->addItem(new CValueControl("AutoLaneChangeSpeed", "变道速度(20)", "车线换线速度设置", "../assets/offroad/icon_road.png", 1, 100, 5));
+    latLongToggles->addItem(new CValueControl("UseLaneLineSpeed", "车道线模式速度(0)", "Lainline mode, lat_mpc control used", "../assets/offroad/icon_shell.png", 0, 200, 5));
+    latLongToggles->addItem(new CValueControl("AdjustLaneOffset", "调整车道偏移(0)cm", "", "../assets/offroad/icon_shell.png", 0, 500, 5));
+    latLongToggles->addItem(new CValueControl("AdjustCurveOffset", "调整曲线偏移(0)cm", "", "../assets/offroad/icon_shell.png", 0, 500, 5));
+    latLongToggles->addItem(new CValueControl("PathOffset", "路径偏移", "(-)left, (+)right, when UseLaneLineSpeed > 0", "../assets/offroad/icon_road.png", -50, 50, 1));
     //latLongToggles->addItem(horizontal_line());
-    //latLongToggles->addItem(new CValueControl("JerkStartLimit", "LONG: JERK START(10)x0.1", "Starting Jerk.", "../assets/offroad/icon_road.png", 1, 50, 1));
-    latLongToggles->addItem(new CValueControl("LongitudinalTuningKpV", "LONG: P Gain(100)", "", "../assets/offroad/icon_road.png", 50, 150, 1));
-    latLongToggles->addItem(new CValueControl("LongitudinalTuningKiV", "LONG: I Gain(200)", "", "../assets/offroad/icon_road.png", 0, 2000, 5));
-    latLongToggles->addItem(new CValueControl("LongitudinalTuningKf", "LONG: FF Gain(100)", "", "../assets/offroad/icon_road.png", 0, 200, 1));
-    latLongToggles->addItem(new CValueControl("StartAccelApply", "LONG: StartingAccel 2.0x(0)%", "从停止到出发时指定加速度的加速率。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
-    latLongToggles->addItem(new CValueControl("StopAccelApply", "LONG: StoppingAccel -2.0x(0)%", "在停车保持时调整刹车压力。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
+    //latLongToggles->addItem(new CValueControl("JerkStartLimit", "LONG: 急启动(10)x0.1", "Starting Jerk.", "../assets/offroad/icon_road.png", 1, 50, 1));
+    latLongToggles->addItem(new CValueControl("LongitudinalTuningKpV", "LONG: P 增益(100)", "", "../assets/offroad/icon_road.png", 50, 150, 1));
+    latLongToggles->addItem(new CValueControl("LongitudinalTuningKiV", "LONG: I 增益(200)", "", "../assets/offroad/icon_road.png", 0, 2000, 5));
+    latLongToggles->addItem(new CValueControl("LongitudinalTuningKf", "LONG: FF G增益(100)", "", "../assets/offroad/icon_road.png", 0, 200, 1));
+    latLongToggles->addItem(new CValueControl("StartAccelApply", "LONG: 启动加速 2.0x(0)%", "从停止到出发时指定加速度的加速率。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
+    latLongToggles->addItem(new CValueControl("StopAccelApply", "LONG: 停止加速 -2.0x(0)%", "在停车保持时调整刹车压力。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
 
     
     latLongToggles->addItem(new CValueControl("StoppingAccel", "LONG: StoppingStartAccelx0.01(-40)", "", "../assets/offroad/icon_road.png", -100, 0, 5));
