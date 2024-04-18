@@ -287,11 +287,12 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   });
 
   //addItem(horizontal_line());
-  addItem(new CarrotParamsControl(0, "기본값설정", "모든설정을 기본값으로", "../assets/offroad/icon_shell.png", false));
-  addItem(new CarrotParamsControl(10, "롱컨배선개조 (HKG)", "레이더롱컨이 되도록 배선을 개조하였음", "../assets/offroad/icon_shell.png"));
-  addItem(new CarrotParamsControl(11, "레이더트랙사용 (HKG)", "레이더트랙이 지원되는 차량만 선택", "../assets/offroad/icon_shell.png"));
-  addItem(new CarrotParamsControl(20, "비젼롱컨사용 (HKG)", "비젼을 이용한 롱컨을 이용중임, (카니발4_HDA2, 아이오닉6 X)", "../assets/offroad/icon_shell.png"));
-  addItem(new CarrotParamsControl(30, "자동크루즈 사용 (HKG)", "롱컨이 가능한차량만 가능함", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(0, "기본값설정", "将所有设置恢复为默认值", "../assets/offroad/icon_shell.png", false));
+ addItem(new CarrotParamsControl(10, "롱컨배선개조 (HKG)", "已改装线路以使用雷达长控", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(11, "레이더트랙사용 (HKG)", "仅选择支持雷达追踪的车辆", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(20, "비젼롱컨사용 (HKG)", "正在使用基于视觉的长控，适用于（카니발4_HDA2, 아이오닉6 X）", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(30, "자동크루즈 사용 (HKG)", "仅适用于可以进行长控的车辆", "../assets/offroad/icon_shell.png"));
+
 
   // power buttons
   QHBoxLayout *power_layout = new QHBoxLayout();
@@ -570,10 +571,11 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     cruiseToggles->addItem(new ParamControl("ApplyLongDynamicCost", "GAP: Dynamic Control(0)", "전방차량의 간격을 최대한 유지하도록 응답속도가 빨라집니다.", "../assets/offroad/icon_road.png", this));
     cruiseToggles->addItem(new CValueControl("TFollowSpeedAddM", "GAP: Additinal TFs 40km/h(0)x0.01s", "Speed-dependent additinal max(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
     cruiseToggles->addItem(new CValueControl("TFollowSpeedAdd", "GAP: Additinal TFs 100Km/h(0)x0.01s", "Speed-dependent additinal max(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap1", "GAP1: Apply TFollow (110)x0.01s", "선행차와의 간격1단계, 속도x시간", "../assets/offroad/icon_road.png", 70, 300, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap2", "GAP2: Apply TFollow (120)x0.01s", "선행차와의 간격2단계, 속도x시간", "../assets/offroad/icon_road.png", 70, 300, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap3", "GAP3: Apply TFollow (160)x0.01s", "선행차와의 간격3단계, 속도x시간", "../assets/offroad/icon_road.png", 70, 300, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap4", "GAP4: Apply TFollow (180)x0.01s", "선행차와의 간격4단계, 속도x시간", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap1", "GAP1: Apply TFollow (110)x0.01s", "第一阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap2", "GAP2: Apply TFollow (120)x0.01s", "第二阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap3", "GAP3: Apply TFollow (160)x0.01s", "第三阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap4", "GAP4: Apply TFollow (180)x0.01s", "第四阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+
     cruiseToggles->addItem(new CValueControl("MyDrivingMode", "DRIVEMODE: Select", "1:ECO,2:SAFE,3:NORMAL,4:HIGH", "../assets/offroad/icon_road.png", 1, 4, 1));
     cruiseToggles->addItem(new CValueControl("MyEcoModeFactor", "DRIVEMODE: ECO Accel ratio(80%)", "Acceleartion ratio in ECO mode", "../assets/offroad/icon_road.png", 10, 95, 5));
     cruiseToggles->addItem(new CValueControl("MySafeModeFactor", "DRIVEMODE: SAFE ratio(60%)", "Accel/StopDistance/DecelRatio/Gap control ratio", "../assets/offroad/icon_road.png", 10, 90, 10));
@@ -589,19 +591,20 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     latLongToggles->addItem(new CValueControl("LongitudinalTuningKpV", "LONG: P Gain(100)", "", "../assets/offroad/icon_road.png", 50, 150, 1));
     latLongToggles->addItem(new CValueControl("LongitudinalTuningKiV", "LONG: I Gain(200)", "", "../assets/offroad/icon_road.png", 0, 2000, 5));
     latLongToggles->addItem(new CValueControl("LongitudinalTuningKf", "LONG: FF Gain(100)", "", "../assets/offroad/icon_road.png", 0, 200, 1));
-    latLongToggles->addItem(new CValueControl("StartAccelApply", "LONG: StartingAccel 2.0x(0)%", "정지->출발시 가속도의 가속율을 지정합니다 0: 사용안함.", "../assets/offroad/icon_road.png", 0, 100, 10));
-    latLongToggles->addItem(new CValueControl("StopAccelApply", "LONG: StoppingAccel -2.0x(0)%", "정지유지시 브레이크압을 조정합니다. 0: 사용안함. ", "../assets/offroad/icon_road.png", 0, 100, 10));
+    latLongToggles->addItem(new CValueControl("StartAccelApply", "LONG: StartingAccel 2.0x(0)%", "从停止到出发时指定加速度的加速率。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
+    latLongToggles->addItem(new CValueControl("StopAccelApply", "LONG: StoppingAccel -2.0x(0)%", "在停车保持时调整刹车压力。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
+
     
     latLongToggles->addItem(new CValueControl("StoppingAccel", "LONG: StoppingStartAccelx0.01(-40)", "", "../assets/offroad/icon_road.png", -100, 0, 5));
     latLongToggles->addItem(new CValueControl("StopDistanceCarrot", "LONG: StopDistance (600)cm", "", "../assets/offroad/icon_road.png", 400, 1000, 10));
 
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals1", "ACCEL:0km/h(160)", "속도별 가속도를 지정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals2", "ACCEL:40km/h(120)", "속도별 가속도를 지정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals3", "ACCEL:60km/h(100)", "속도별 가속도를 지정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals4", "ACCEL:80km/h(80)", "속도별 가속도를 지정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals5", "ACCEL:110km/h(70)", "속도별 가속도를 지정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals6", "ACCEL:140km/h(60)", "속도별 가속도를 지정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMinVals", "DECEL:(120)", "감속도를 설정합니다.(x0.01m/s^2)", "../assets/offroad/icon_road.png", 50, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals1", "ACCEL:0km/h(160)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals2", "ACCEL:40km/h(120)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals3", "ACCEL:60km/h(100)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals4", "ACCEL:80km/h(80)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals5", "ACCEL:110km/h(70)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals6", "ACCEL:140km/h(60)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMinVals", "DECEL:(120)", "设置减速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 50, 250, 5));
 
     dispToggles = new ListWidget(this);
     dispToggles->addItem(new CValueControl("ShowHudMode", "DISP:Display Mode", "0:Frog,1:APilot,2:Bottom,3:Top,4:Left,5:Left-Bottom", "../assets/offroad/icon_shell.png", 0, 5, 1));
