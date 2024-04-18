@@ -759,19 +759,19 @@ CarsPanel::CarsPanel(QWidget* parent) : QWidget(parent) {
     QVBoxLayout* toggles_layout = new QVBoxLayout(toggles);
 
     commonToggles = new ListWidget(this);
-    commonToggles->addItem(new ParamControl("MuteDoor", "MuteDoor", "", "../assets/offroad/icon_warning.png", this));
-    commonToggles->addItem(new ParamControl("MuteSeatbelt", "MuteSeatbelt", "", "../assets/offroad/icon_warning.png", this));
-    commonToggles->addItem(new CValueControl("SteerActuatorDelay", "LAT:SteerActuatorDelay(40)", "标准", "../assets/offroad/icon_road.png", 1, 100, 1));
-    commonToggles->addItem(new CValueControl("SteerRatio", "LAT: SteerRatiox0.1(0)", "Custom SteerRatio", "../assets/offroad/icon_road.png", 0, 300, 1));
-    commonToggles->addItem(new CValueControl("LateralTorqueCustom", "LAT: TorqueCustom(0)", "", "../assets/offroad/icon_road.png", 0, 2, 1));
-    commonToggles->addItem(new CValueControl("LateralTorqueAccelFactor", "LAT: TorqueAccelFactor(2500)", "", "../assets/offroad/icon_road.png", 1000, 6000, 10));
-    commonToggles->addItem(new CValueControl("LateralTorqueFriction", "LAT: TorqueFriction(100)", "", "../assets/offroad/icon_road.png", 0, 1000, 10));
-    commonToggles->addItem(new CValueControl("CustomSteerMax", "LAT: CustomSteerMax(0)", "", "../assets/offroad/icon_road.png", 0, 512, 10));
-    commonToggles->addItem(new CValueControl("CustomSteerDeltaUp", "LAT: CustomSteerDeltaUp(0)", "", "../assets/offroad/icon_road.png", 0, 20, 10));
-    commonToggles->addItem(new CValueControl("CustomSteerDeltaDown", "LAT: CustomSteerDeltaDown(0)", "", "../assets/offroad/icon_road.png", 0, 20, 10));
-    commonToggles->addItem(new CValueControl("SpeedFromPCM", "Read Cruise Speed from PCM", "Toyota must set to 1", "../assets/offroad/icon_road.png", 0, 2, 1));
+    commonToggles->addItem(new ParamControl("MuteDoor", "静音门", "", "../assets/offroad/icon_warning.png", this));
+    commonToggles->addItem(new ParamControl("MuteSeatbelt", "静音安全带", "", "../assets/offroad/icon_warning.png", this));
+    commonToggles->addItem(new CValueControl("SteerActuatorDelay", "LAT:转向执行器延迟(40)", "标准", "../assets/offroad/icon_road.png", 1, 100, 1));
+    commonToggles->addItem(new CValueControl("SteerRatio", "LAT: 转向比0.1(0)", "自定义转向比", "../assets/offroad/icon_road.png", 0, 300, 1));
+    commonToggles->addItem(new CValueControl("LateralTorqueCustom", "LAT: 扭矩定制(0)", "", "../assets/offroad/icon_road.png", 0, 2, 1));
+    commonToggles->addItem(new CValueControl("LateralTorqueAccelFactor", "LAT: 扭矩加速度系数(2500)", "", "../assets/offroad/icon_road.png", 1000, 6000, 10));
+    commonToggles->addItem(new CValueControl("LateralTorqueFriction", "LAT: 扭矩摩擦力(100)", "", "../assets/offroad/icon_road.png", 0, 1000, 10));
+    commonToggles->addItem(new CValueControl("CustomSteerMax", "LAT: 定制转向最大(0)", "", "../assets/offroad/icon_road.png", 0, 512, 10));
+    commonToggles->addItem(new CValueControl("CustomSteerDeltaUp", "LAT: 定制转向DeltaUp(0)", "", "../assets/offroad/icon_road.png", 0, 20, 10));
+    commonToggles->addItem(new CValueControl("CustomSteerDeltaDown", "LAT: 定制转向德尔塔下降(0)", "", "../assets/offroad/icon_road.png", 0, 20, 10));
+    commonToggles->addItem(new CValueControl("SpeedFromPCM", "从 PCM 读取巡航速度", "Toyota must set to 1", "../assets/offroad/icon_road.png", 0, 2, 1));
     commonToggles->addItem(new CValueControl("NNFF", "NNFF", "Twilsonco's NNFF(Reboot required)", "../assets/offroad/icon_road.png", 0, 1, 1));
-    commonToggles->addItem(new CValueControl("UseLateralJerk", "UseLateralJerk", "Reboot required", "../assets/offroad/icon_road.png", 0, 1, 1));
+    commonToggles->addItem(new CValueControl("UseLateralJerk", "使用横向挺举", "Reboot required", "../assets/offroad/icon_road.png", 0, 1, 1));
 
     hyundaiToggles = new ListWidget(this);
     hyundaiToggles->addItem(new CValueControl("AutoCruiseControl", "(HKG) Auto Cruise control", "Softhold, Auto Cruise ON/OFF control", "../assets/offroad/icon_road.png", 0, 3, 1));
