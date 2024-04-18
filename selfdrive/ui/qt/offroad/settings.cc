@@ -287,11 +287,11 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   });
 
   //addItem(horizontal_line());
- addItem(new CarrotParamsControl(0, "기본값설정", "将所有设置恢复为默认值", "../assets/offroad/icon_shell.png", false));
- addItem(new CarrotParamsControl(10, "롱컨배선개조 (HKG)", "已改装线路以使用雷达长控", "../assets/offroad/icon_shell.png"));
- addItem(new CarrotParamsControl(11, "레이더트랙사용 (HKG)", "仅选择支持雷达追踪的车辆", "../assets/offroad/icon_shell.png"));
- addItem(new CarrotParamsControl(20, "비젼롱컨사용 (HKG)", "正在使用基于视觉的长控，适用于（카니발4_HDA2, 아이오닉6 X）", "../assets/offroad/icon_shell.png"));
- addItem(new CarrotParamsControl(30, "자동크루즈 사용 (HKG)", "仅适用于可以进行长控的车辆", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(0, "设置默认值", "将所有设置恢复为默认值", "../assets/offroad/icon_shell.png", false));
+ addItem(new CarrotParamsControl(10, "龙康布线改造 (HKG)", "已改装线路以使用雷达长控", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(11, "使用雷达轨迹 (HKG)", "仅选择支持雷达追踪的车辆", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(20, "使用视觉长锥 (HKG)", "正在使用基于视觉的长控，适用于（카니발4_HDA2, 아이오닉6 X）", "../assets/offroad/icon_shell.png"));
+ addItem(new CarrotParamsControl(30, "使用自动巡航 (HKG)", "仅适用于可以进行长控的车辆", "../assets/offroad/icon_shell.png"));
 
 
   // power buttons
