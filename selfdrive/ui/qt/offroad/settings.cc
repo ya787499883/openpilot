@@ -568,7 +568,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     cruiseToggles->addItem(new CValueControl("AutoSpeedUptoRoadSpeedLimit", "CRUISE: Auto speed up (100%)", "Auto speed up based on the lead car upto RoadSpeedLimit.", "../assets/offroad/icon_road.png", 0, 200, 10));
     //cruiseToggles->addItem(new CValueControl("AutoResumeFromGas", "GAS CRUISE ON: Use", "Auto Cruise on when GAS pedal released, 60% Gas Cruise On automatically", "../assets/offroad/icon_road.png", 0, 3, 1));
     cruiseToggles->addItem(new CValueControl("AutoResumeFromGasSpeed", "GAS CRUISE ON: Speed(30)", "Driving speed exceeds the set value, Cruise ON", "../assets/offroad/icon_road.png", 20, 140, 5));
-    cruiseToggles->addItem(new ParamControl("ApplyLongDynamicCost", "GAP: Dynamic Control(0)", "전방차량의 간격을 최대한 유지하도록 응답속도가 빨라집니다.", "../assets/offroad/icon_road.png", this));
+    cruiseToggles->addItem(new ParamControl("ApplyLongDynamicCost", "GAP: Dynamic Control(0)", "响应速度变得更快，以保持与前方车辆的最大距离.", "../assets/offroad/icon_road.png", this));
     cruiseToggles->addItem(new CValueControl("TFollowSpeedAddM", "GAP: Additinal TFs 40km/h(0)x0.01s", "Speed-dependent additinal max(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
     cruiseToggles->addItem(new CValueControl("TFollowSpeedAdd", "GAP: Additinal TFs 100Km/h(0)x0.01s", "Speed-dependent additinal max(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
     cruiseToggles->addItem(new CValueControl("TFollowGap1", "GAP1: Apply TFollow (110)x0.01s", "第一阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
@@ -581,7 +581,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     cruiseToggles->addItem(new CValueControl("MySafeModeFactor", "DRIVEMODE: SAFE ratio(60%)", "Accel/StopDistance/DecelRatio/Gap control ratio", "../assets/offroad/icon_road.png", 10, 90, 10));
 
     latLongToggles = new ListWidget(this);
-    latLongToggles->addItem(new CValueControl("AutoLaneChangeSpeed", "LaneChangeSpeed(20)", "자동차선변경속도설정", "../assets/offroad/icon_road.png", 1, 100, 5));
+    latLongToggles->addItem(new CValueControl("AutoLaneChangeSpeed", "LaneChangeSpeed(20)", "车线换线速度设置", "../assets/offroad/icon_road.png", 1, 100, 5));
     latLongToggles->addItem(new CValueControl("UseLaneLineSpeed", "Laneline mode speed(0)", "Lainline mode, lat_mpc control used", "../assets/offroad/icon_shell.png", 0, 200, 5));
     latLongToggles->addItem(new CValueControl("AdjustLaneOffset", "AdjustLaneOffset(0)cm", "", "../assets/offroad/icon_shell.png", 0, 500, 5));
     latLongToggles->addItem(new CValueControl("AdjustCurveOffset", "AdjustCurveOffset(0)cm", "", "../assets/offroad/icon_shell.png", 0, 500, 5));
@@ -643,18 +643,18 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     startToggles->addItem(new ParamControl("LaneChangeNeedTorque", "LaneChange: Need Torque", "", "../assets/offroad/icon_shell.png", this));
 
     speedToggles = new ListWidget(this);
-    speedToggles->addItem(new CValueControl("AutoCurveSpeedLowerLimit", "CURVE: Lower limit speed(30)", "곡선도로를 만나면 속도를 줄여줍니다. 최저속도", "../assets/offroad/icon_road.png", 30, 200, 5));
+    speedToggles->addItem(new CValueControl("AutoCurveSpeedLowerLimit", "CURVE: Lower limit speed(30)", "遇到弯曲道路时减速。最低速度", "../assets/offroad/icon_road.png", 30, 200, 5));
     speedToggles->addItem(new CValueControl("AutoCurveSpeedFactor", "CURVE: Auto Control ratio(100%)", "", "../assets/offroad/icon_road.png", 50, 300, 1));
     speedToggles->addItem(new CValueControl("AutoCurveSpeedAggressiveness", "CURVE: Aggressiveness (100%)", "", "../assets/offroad/icon_road.png", 50, 300, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrlEnd", "SpeedCameraDecelEnd(6s)", "감속완료시점을 설정합니다.값이 크면 카메라에서 멀리 감속 완료", ".. / assets / offroad / icon_road.png", 3, 20, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrl", tr("SpeedCameraControl(1)"), "0:사용안함, 1:APN, 2:APN + Road Speedlimit", "../assets/offroad/icon_road.png", 0, 2, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedDecelRate", "SpeedCameraDecelRatex0.01m/s^2(80)", "낮으면 멀리서부터 감속함", ".. / assets / offroad / icon_road.png", 10, 200, 10));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrlEnd", "SpeedCameraDecelEnd(6s)", "设置减速完成点 如果该值较大，则在远离摄像机的地方完成减速", ".. / assets / offroad / icon_road.png", 3, 20, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrl", tr("SpeedCameraControl(1)"), "0:不曾用过, 1:APN, 2:APN + Road Speedlimit", "../assets/offroad/icon_road.png", 0, 2, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedDecelRate", "SpeedCameraDecelRatex0.01m/s^2(80)", "如果它很低，它会从远处减慢", ".. / assets / offroad / icon_road.png", 10, 200, 10));
     speedToggles->addItem(new CValueControl("AutoNaviSpeedSafetyFactor", "SpeedCameraSafetyFactor(105%)", "", ".. / assets / offroad / icon_road.png", 80, 120, 1));
     speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpTime", "SpeedBumpTimeDistance(1s)", "", ".. / assets / offroad / icon_road.png", 1, 50, 1));
     speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpSpeed", "SpeedBumpSpeed(35Km/h)", "", ".. / assets / offroad / icon_road.png", 10, 100, 5));
-    speedToggles->addItem(new CValueControl("AutoTurnControl", "NOO Helper(0)", "0:없음,1:차선변경,2:차선변경+속도,3:속도", "../assets/offroad/icon_road.png", 0, 3, 1));
-    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedLaneChange", "NOO Helper LaneChange Speed (60)", "0:없음,차로변경속도", "../assets/offroad/icon_road.png", 0, 100, 5));
-    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedTurn", "NOO Helper Turn Speed (20)", "0:없음, 턴속도", "../assets/offroad/icon_road.png", 0, 100, 5));
+    speedToggles->addItem(new CValueControl("AutoTurnControl", "NOO Helper(0)", "0:无，1：变道，2：变道+速度，3：速度", "../assets/offroad/icon_road.png", 0, 3, 1));
+    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedLaneChange", "NOO Helper LaneChange Speed (60)", "0:无，变道速度", "../assets/offroad/icon_road.png", 0, 100, 5));
+    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedTurn", "NOO Helper Turn Speed (20)", "0:无，转速", "../assets/offroad/icon_road.png", 0, 100, 5));
     speedToggles->addItem(new CValueControl("AutoTurnControlTurnEnd", "NOO Helper Turn CtrlDistTime (6)", "dist=speed*time", "../assets/offroad/icon_road.png", 0, 30, 1));
     speedToggles->addItem(new CValueControl("AutoTurnMapChange", "NOO Helper Auto Map Change(0)", "", "../assets/offroad/icon_road.png", 0, 2, 1));
     speedToggles->addItem(new CValueControl("MSLCEnabled", "MSLC Enabled", "Map: Speed Limit controller", "../assets/offroad/icon_road.png", 0, 3, 1));
@@ -733,19 +733,19 @@ CarsPanel::CarsPanel(QWidget* parent) : QWidget(parent) {
     QHBoxLayout* select_layout = new QHBoxLayout();
     select_layout->setSpacing(30);
 
-    QPushButton* common_btn = new QPushButton(tr("Common"));
+    QPushButton* common_btn = new QPushButton(tr("常见的"));
     common_btn->setObjectName("common_btn");
     QObject::connect(common_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(0); });
 
-    QPushButton* hyundai_btn = new QPushButton(tr("Hyundai"));
+    QPushButton* hyundai_btn = new QPushButton(tr("现代"));
     hyundai_btn->setObjectName("hyundai_btn");
     QObject::connect(hyundai_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(1); });
 
-    QPushButton* gm_btn = new QPushButton(tr("GM"));
+    QPushButton* gm_btn = new QPushButton(tr("通用汽车"));
     gm_btn->setObjectName("gm_btn");
     QObject::connect(gm_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(2); });
 
-    QPushButton* toyota_btn = new QPushButton(tr("Toyota"));
+    QPushButton* toyota_btn = new QPushButton(tr("丰田"));
     toyota_btn->setObjectName("toyota_btn");
     QObject::connect(toyota_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(3); });
 
@@ -761,7 +761,7 @@ CarsPanel::CarsPanel(QWidget* parent) : QWidget(parent) {
     commonToggles = new ListWidget(this);
     commonToggles->addItem(new ParamControl("MuteDoor", "MuteDoor", "", "../assets/offroad/icon_warning.png", this));
     commonToggles->addItem(new ParamControl("MuteSeatbelt", "MuteSeatbelt", "", "../assets/offroad/icon_warning.png", this));
-    commonToggles->addItem(new CValueControl("SteerActuatorDelay", "LAT:SteerActuatorDelay(40)", "표준", "../assets/offroad/icon_road.png", 1, 100, 1));
+    commonToggles->addItem(new CValueControl("SteerActuatorDelay", "LAT:SteerActuatorDelay(40)", "标准", "../assets/offroad/icon_road.png", 1, 100, 1));
     commonToggles->addItem(new CValueControl("SteerRatio", "LAT: SteerRatiox0.1(0)", "Custom SteerRatio", "../assets/offroad/icon_road.png", 0, 300, 1));
     commonToggles->addItem(new CValueControl("LateralTorqueCustom", "LAT: TorqueCustom(0)", "", "../assets/offroad/icon_road.png", 0, 2, 1));
     commonToggles->addItem(new CValueControl("LateralTorqueAccelFactor", "LAT: TorqueAccelFactor(2500)", "", "../assets/offroad/icon_road.png", 1000, 6000, 10));
@@ -998,7 +998,7 @@ void CarrotParamsControl::showEvent(QShowEvent* event) {
     refresh();
 }
 void CarrotParamsControl::SetParams(int mode) {
-    //addItem(new CarrotParamsControl(0, "기본값설정", "모든설정을 기본값으로", "../assets/offroad/icon_shell.png", false));
+    //addItem(new CarrotParamsControl(0, "默认设置", "将所有设置设为默认值", "../assets/offroad/icon_shell.png", false));
     //addItem(new CarrotParamsControl(10, "롱컨배선개조 (HKG)", "레이더롱컨이 되도록 배선을 개조하였음 ", "../assets/offroad/icon_shell.png"));
     //addItem(new CarrotParamsControl(20, "비젼롱컨사용 (HKG)", "비젼을 이용한 롱컨을 이용중임, (카니발4_HDA2, 아이오닉6 X)", "../assets/offroad/icon_shell.png"));
     //addItem(new CarrotParamsControl(30, "자동크루즈 사용 (HKG)", "롱컨이 가능한차량만 가능함", "../assets/offroad/icon_shell.png"));
@@ -1011,17 +1011,17 @@ void CarrotParamsControl::SetParams(int mode) {
         process.start("/bin/sh", QStringList{ "-c", QString("python ./params_default.py") });
         process.waitForFinished();
     }
-    else if (mode == 10) {   // 롱컨배선개조
+    else if (mode == 10) {   // 龙康布线改造
         Params().put("SccConnectedBus2", (on) ? "1" : "0");
     }
-    else if (mode == 11) {   // 레이더트랙지원
+    else if (mode == 11) {   // 雷达轨迹支持
         Params().put("EnableRadarTracks", (on) ? "1" : "0");
     }
-    else if (mode == 20) {   // 비젼롱컨 사용
+    else if (mode == 20) {   // 使用远景朗康
         Params().put("ALeadTau", (on) ? "120":"30");
         Params().put("ALeadTauStart", (on) ? "40" : "40");
     }
-    else if (mode == 30) {      // 자동크루즈사용
+    else if (mode == 30) {      // 使用自动巡航
         Params().put("AutoCruiseControl", (on) ? "2" : "0");
         Params().put("SoftHoldMode", (on) ? "2" : "0");
 
