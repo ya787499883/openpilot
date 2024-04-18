@@ -525,27 +525,27 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     QHBoxLayout* select_layout = new QHBoxLayout();
     select_layout->setSpacing(30);
 
-    QPushButton* cruise_btn = new QPushButton(tr("Cruise"));
+    QPushButton* cruise_btn = new QPushButton(tr("巡航"));
     cruise_btn->setObjectName("cruise_btn");
     QObject::connect(cruise_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(0); });
 
-    QPushButton* latLong_btn = new QPushButton(tr("Tuning"));
+    QPushButton* latLong_btn = new QPushButton(tr("调音"));
     latLong_btn->setObjectName("latLong_btn");
     QObject::connect(latLong_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(1); });
 
-    QPushButton* disp_btn = new QPushButton(tr("Disp"));
+    QPushButton* disp_btn = new QPushButton(tr("显示"));
     disp_btn->setObjectName("disp_btn");
     QObject::connect(disp_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(2); });
 
-    QPushButton* path_btn = new QPushButton(tr("Path"));
+    QPushButton* path_btn = new QPushButton(tr("小路"));
     path_btn->setObjectName("path_btn");
     QObject::connect(path_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(3); });
 
-    QPushButton* start_btn = new QPushButton(tr("Start"));
+    QPushButton* start_btn = new QPushButton(tr("开始"));
     start_btn->setObjectName("start_btn");
     QObject::connect(start_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(4); });
 
-    QPushButton* speed_btn = new QPushButton(tr("Speed"));
+    QPushButton* speed_btn = new QPushButton(tr("速度"));
     speed_btn->setObjectName("speed_btn");
     QObject::connect(speed_btn, &QPushButton::clicked, this, [this]() {this->togglesCarrot(5); });
 
@@ -561,20 +561,20 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     QVBoxLayout* toggles_layout = new QVBoxLayout(toggles);
 
     cruiseToggles = new ListWidget(this);
-    cruiseToggles->addItem(new CValueControl("CruiseButtonMode", "Button: Cruise Button Mode", "0:Normal,1:User1,2:User2", "../assets/offroad/icon_road.png", 0, 2, 1));
-    cruiseToggles->addItem(new CValueControl("CruiseSpeedUnit", "Button: Cruise Speed Unit", "", "../assets/offroad/icon_road.png", 1, 20, 1));
-    cruiseToggles->addItem(new CValueControl("CruiseEcoControl", "CRUISE: Eco control(4km/h)", "Temporarily increasing the set speed to improve fuel efficiency.", "../assets/offroad/icon_road.png", 0, 10, 1));
-    cruiseToggles->addItem(new CValueControl("CruiseSpeedMin", "CRUISE: Speed Lower limit(10)", "Cruise control MIN speed", "../assets/offroad/icon_road.png", 5, 50, 1));
-    cruiseToggles->addItem(new CValueControl("AutoSpeedUptoRoadSpeedLimit", "CRUISE: Auto speed up (100%)", "Auto speed up based on the lead car upto RoadSpeedLimit.", "../assets/offroad/icon_road.png", 0, 200, 10));
-    //cruiseToggles->addItem(new CValueControl("AutoResumeFromGas", "GAS CRUISE ON: Use", "Auto Cruise on when GAS pedal released, 60% Gas Cruise On automatically", "../assets/offroad/icon_road.png", 0, 3, 1));
-    cruiseToggles->addItem(new CValueControl("AutoResumeFromGasSpeed", "GAS CRUISE ON: Speed(30)", "Driving speed exceeds the set value, Cruise ON", "../assets/offroad/icon_road.png", 20, 140, 5));
-    cruiseToggles->addItem(new ParamControl("ApplyLongDynamicCost", "GAP: Dynamic Control(0)", "响应速度变得更快，以保持与前方车辆的最大距离.", "../assets/offroad/icon_road.png", this));
-    cruiseToggles->addItem(new CValueControl("TFollowSpeedAddM", "GAP: Additinal TFs 40km/h(0)x0.01s", "Speed-dependent additinal max(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowSpeedAdd", "GAP: Additinal TFs 100Km/h(0)x0.01s", "Speed-dependent additinal max(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap1", "GAP1: Apply TFollow (110)x0.01s", "第一阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap2", "GAP2: Apply TFollow (120)x0.01s", "第二阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap3", "GAP3: Apply TFollow (160)x0.01s", "第三阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
-    cruiseToggles->addItem(new CValueControl("TFollowGap4", "GAP4: Apply TFollow (180)x0.01s", "第四阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("CruiseButtonMode", "按键：巡航按键模式", "0:Normal,1:User1,2:User2", "../assets/offroad/icon_road.png", 0, 2, 1));
+    cruiseToggles->addItem(new CValueControl("CruiseSpeedUnit", "按钮：巡航速度单位", "", "../assets/offroad/icon_road.png", 1, 20, 1));
+    cruiseToggles->addItem(new CValueControl("CruiseEcoControl", "巡航：生态控制(4km/h)", "暂时提高设定速度以提高燃油效率.", "../assets/offroad/icon_road.png", 0, 10, 1));
+    cruiseToggles->addItem(new CValueControl("CruiseSpeedMin", "巡航：速度下限(10)", "巡航控制最低速度", "../assets/offroad/icon_road.png", 5, 50, 1));
+    cruiseToggles->addItem(new CValueControl("AutoSpeedUptoRoadSpeedLimit", "巡航：自动加速 (100%)", "根据领先车辆自动加速至  RoadSpeedLimit.", "../assets/offroad/icon_road.png", 0, 200, 10));
+    //cruiseToggles->addItem(new CValueControl("AutoResumeFromGas", "GAS 巡航开启：使用", "松开油门踏板时自动巡航开启, 60% Gas Cruise On automatically", "../assets/offroad/icon_road.png", 0, 3, 1));
+    cruiseToggles->addItem(new CValueControl("AutoResumeFromGasSpeed", "GAS 巡航：速度(30)", "行驶速度超过设定值，巡航开启", "../assets/offroad/icon_road.png", 20, 140, 5));
+    cruiseToggles->addItem(new ParamControl("ApplyLongDynamicCost", "GAP: 动态控制(0)", "响应速度变得更快，以保持与前方车辆的最大距离.", "../assets/offroad/icon_road.png", this));
+    cruiseToggles->addItem(new CValueControl("TFollowSpeedAddM", "GAP: 附加 TFs 40km/h(0)x0.01s", "速度相关的附加最大值(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowSpeedAdd", "GAP: A附加 TFs 100Km/h(0)x0.01s", "速度相关的附加最大值(100km/h) TFs", "../assets/offroad/icon_road.png", -100, 200, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap1", "GAP1: 申请关注 (110)x0.01s", "第一阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap2", "GAP2: 申请关注 (120)x0.01s", "第二阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap3", "GAP3: 申请关注 (160)x0.01s", "第三阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
+    cruiseToggles->addItem(new CValueControl("TFollowGap4", "GAP4: 申请关注 (180)x0.01s", "第四阶段与前车的距离，速度x时间", "../assets/offroad/icon_road.png", 70, 300, 5));
 
     cruiseToggles->addItem(new CValueControl("MyDrivingMode", "DRIVEMODE: Select", "1:ECO,2:SAFE,3:NORMAL,4:HIGH", "../assets/offroad/icon_road.png", 1, 4, 1));
     cruiseToggles->addItem(new CValueControl("MyEcoModeFactor", "DRIVEMODE: ECO Accel ratio(80%)", "Acceleartion ratio in ECO mode", "../assets/offroad/icon_road.png", 10, 95, 5));
@@ -643,24 +643,24 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     startToggles->addItem(new ParamControl("LaneChangeNeedTorque", "变道：需要扭矩", "", "../assets/offroad/icon_shell.png", this));
 
     speedToggles = new ListWidget(this);
-    speedToggles->addItem(new CValueControl("AutoCurveSpeedLowerLimit", "CURVE: Lower limit speed(30)", "遇到弯曲道路时减速。最低速度", "../assets/offroad/icon_road.png", 30, 200, 5));
-    speedToggles->addItem(new CValueControl("AutoCurveSpeedFactor", "CURVE: Auto Control ratio(100%)", "", "../assets/offroad/icon_road.png", 50, 300, 1));
-    speedToggles->addItem(new CValueControl("AutoCurveSpeedAggressiveness", "CURVE: Aggressiveness (100%)", "", "../assets/offroad/icon_road.png", 50, 300, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrlEnd", "SpeedCameraDecelEnd(6s)", "设置减速完成点 如果该值较大，则在远离摄像机的地方完成减速", ".. / assets / offroad / icon_road.png", 3, 20, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrl", tr("SpeedCameraControl(1)"), "0:不曾用过, 1:APN, 2:APN + Road Speedlimit", "../assets/offroad/icon_road.png", 0, 2, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedDecelRate", "SpeedCameraDecelRatex0.01m/s^2(80)", "如果它很低，它会从远处减慢", ".. / assets / offroad / icon_road.png", 10, 200, 10));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedSafetyFactor", "SpeedCameraSafetyFactor(105%)", "", ".. / assets / offroad / icon_road.png", 80, 120, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpTime", "SpeedBumpTimeDistance(1s)", "", ".. / assets / offroad / icon_road.png", 1, 50, 1));
-    speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpSpeed", "SpeedBumpSpeed(35Km/h)", "", ".. / assets / offroad / icon_road.png", 10, 100, 5));
-    speedToggles->addItem(new CValueControl("AutoTurnControl", "NOO Helper(0)", "0:无，1：变道，2：变道+速度，3：速度", "../assets/offroad/icon_road.png", 0, 3, 1));
-    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedLaneChange", "NOO Helper LaneChange Speed (60)", "0:无，变道速度", "../assets/offroad/icon_road.png", 0, 100, 5));
-    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedTurn", "NOO Helper Turn Speed (20)", "0:无，转速", "../assets/offroad/icon_road.png", 0, 100, 5));
-    speedToggles->addItem(new CValueControl("AutoTurnControlTurnEnd", "NOO Helper Turn CtrlDistTime (6)", "dist=speed*time", "../assets/offroad/icon_road.png", 0, 30, 1));
-    speedToggles->addItem(new CValueControl("AutoTurnMapChange", "NOO Helper Auto Map Change(0)", "", "../assets/offroad/icon_road.png", 0, 2, 1));
-    speedToggles->addItem(new CValueControl("MSLCEnabled", "MSLC Enabled", "Map: Speed Limit controller", "../assets/offroad/icon_road.png", 0, 3, 1));
-    speedToggles->addItem(new CValueControl("MTSCEnabled", "MTSC Enabled", "Map: Slow down for curves detected by downloaded maps.", "../assets/offroad/icon_road.png", 0, 1, 1));
-    speedToggles->addItem(new CValueControl("MTSCCurvatureCheck", "MTSC CurvatureCheck", "Map: Trigger MTSC when the model detectes a curve in the road", "../assets/offroad/icon_road.png", 0, 1, 1));
-    speedToggles->addItem(new CValueControl("MTSCAggressiveness", "MTSC MTSCAggressiveness", "Map: MTSC turn speed aggressiveness, Higher value is more faster", "../assets/offroad/icon_road.png", 1, 200, 5));
+    speedToggles->addItem(new CValueControl("AutoCurveSpeedLowerLimit", "CURVE: 下限速度(30)", "遇到弯曲道路时减速。最低速度", "../assets/offroad/icon_road.png", 30, 200, 5));
+    speedToggles->addItem(new CValueControl("AutoCurveSpeedFactor", "CURVE: 自动控制比例(100%)", "", "../assets/offroad/icon_road.png", 50, 300, 1));
+    speedToggles->addItem(new CValueControl("AutoCurveSpeedAggressiveness", "CURVE: 攻击性 (100%)", "", "../assets/offroad/icon_road.png", 50, 300, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrlEnd", "测速相机减速结束(6s)", "设置减速完成点 如果该值较大，则在远离摄像机的地方完成减速", ".. / assets / offroad / icon_road.png", 3, 20, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrl", tr("测速相机控制(1)"), "0:不曾用过, 1:APN, 2:APN + Road Speedlimit", "../assets/offroad/icon_road.png", 0, 2, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedDecelRate", "测速相机减速率x0.01m/s^2(80)", "如果它很低，它会从远处减慢", ".. / assets / offroad / icon_road.png", 10, 200, 10));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedSafetyFactor", "测速相机安全系数(105%)", "", ".. / assets / offroad / icon_road.png", 80, 120, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpTime", "减速带时间距离(1s)", "", ".. / assets / offroad / icon_road.png", 1, 50, 1));
+    speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpSpeed", "减速带速度(35Km/h)", "", ".. / assets / offroad / icon_road.png", 10, 100, 5));
+    speedToggles->addItem(new CValueControl("AutoTurnControl", "NOO 助手(0)", "0:无，1：变道，2：变道+速度，3：速度", "../assets/offroad/icon_road.png", 0, 3, 1));
+    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedLaneChange", "NOO 辅助车道变更速度 (60)", "0:无，变道速度", "../assets/offroad/icon_road.png", 0, 100, 5));
+    speedToggles->addItem(new CValueControl("AutoTurnControlSpeedTurn", "NOO 辅助转弯速度 (20)", "0:无，转速", "../assets/offroad/icon_road.png", 0, 100, 5));
+    speedToggles->addItem(new CValueControl("AutoTurnControlTurnEnd", "NOO 帮助转动  CtrlDistTime (6)", "dist=speed*time", "../assets/offroad/icon_road.png", 0, 30, 1));
+    speedToggles->addItem(new CValueControl("AutoTurnMapChange", "NOO 助手自动地图更改(0)", "", "../assets/offroad/icon_road.png", 0, 2, 1));
+    speedToggles->addItem(new CValueControl("MSLCEnabled", "MSLC Enabled", "地图：限速控制器", "../assets/offroad/icon_road.png", 0, 3, 1));
+    speedToggles->addItem(new CValueControl("MTSCEnabled", "MTSC Enabled", "地图：下载地图检测到的曲线减速.", "../assets/offroad/icon_road.png", 0, 1, 1));
+    speedToggles->addItem(new CValueControl("MTSCCurvatureCheck", "MTSC 曲率检查", "Map: Trigger MTSC when the model detectes a curve in the road", "../assets/offroad/icon_road.png", 0, 1, 1));
+    speedToggles->addItem(new CValueControl("MTSCAggressiveness", "MTSC MTSC攻击性", "Map: MTSC turn speed aggressiveness, Higher value is more faster", "../assets/offroad/icon_road.png", 1, 200, 5));
 
     toggles_layout->addWidget(cruiseToggles);
     toggles_layout->addWidget(latLongToggles);
