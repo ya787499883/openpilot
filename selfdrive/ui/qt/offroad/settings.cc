@@ -595,16 +595,16 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     latLongToggles->addItem(new CValueControl("StopAccelApply", "LONG: 停止加速 -2.0x(0)%", "在停车保持时调整刹车压力。0: 不使用。", "../assets/offroad/icon_road.png", 0, 100, 10));
 
     
-    latLongToggles->addItem(new CValueControl("StoppingAccel", "LONG: StoppingStartAccelx0.01(-40)", "", "../assets/offroad/icon_road.png", -100, 0, 5));
-    latLongToggles->addItem(new CValueControl("StopDistanceCarrot", "LONG: StopDistance (600)cm", "", "../assets/offroad/icon_road.png", 400, 1000, 10));
+    latLongToggles->addItem(new CValueControl("StoppingAccel", "LONG: 停止启动加速x0.01(-40)", "", "../assets/offroad/icon_road.png", -100, 0, 5));
+    latLongToggles->addItem(new CValueControl("StopDistanceCarrot", "LONG: 停止距离 (600)cm", "", "../assets/offroad/icon_road.png", 400, 1000, 10));
 
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals1", "ACCEL:0km/h(160)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals2", "ACCEL:40km/h(120)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals3", "ACCEL:60km/h(100)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals4", "ACCEL:80km/h(80)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals5", "ACCEL:110km/h(70)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMaxVals6", "ACCEL:140km/h(60)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
-    latLongToggles->addItem(new CValueControl("CruiseMinVals", "DECEL:(120)", "设置减速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 50, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals1", "加速器:0km/h(160)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals2", "加速器:40km/h(120)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals3", "加速器:60km/h(100)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals4", "加速器:80km/h(80)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals5", "加速器:110km/h(70)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMaxVals6", "加速器:140km/h(60)", "指定各速度下的加速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 1, 250, 5));
+    latLongToggles->addItem(new CValueControl("CruiseMinVals", "减速度:(120)", "设置减速度。(x0.01m/s^2)", "../assets/offroad/icon_road.png", 50, 250, 5));
 
     dispToggles = new ListWidget(this);
     dispToggles->addItem(new CValueControl("ShowHudMode", "DISP:显示模式", "0:Frog,1:APilot,2:Bottom,3:Top,4:Left,5:Left-Bottom", "../assets/offroad/icon_shell.png", 0, 5, 1));
