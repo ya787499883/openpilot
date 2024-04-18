@@ -710,7 +710,7 @@ CarsPanel::CarsPanel(QWidget* parent) : QWidget(parent) {
     carrotLayout->setMargin(40);
 
     QString selected = QString::fromStdString(Params().get("CarSelected"));
-    QPushButton* selectCarBtn = new QPushButton(selected.length() ? selected : tr("选择你的车"));
+    QPushButton* selectCarBtn = new QPushButton(selected.length() ? selected : tr("Select your car"));
     selectCarBtn->setObjectName("selectCarBtn");
     //selectCarBtn->setStyleSheet("margin-right: 30px;");
     //selectCarBtn->setFixedSize(350, 100);
@@ -720,7 +720,7 @@ CarsPanel::CarsPanel(QWidget* parent) : QWidget(parent) {
     connect(selectCar, &SelectCar::selectedCar, [=]() {
 
         QString selected = QString::fromStdString(Params().get("CarSelected"));
-        selectCarBtn->setText(selected.length() ? selected : tr("选择你的车"));
+        selectCarBtn->setText(selected.length() ? selected : tr("Select your car"));
         main_layout->setCurrentWidget(homeScreen);
         });
     main_layout->addWidget(selectCar);
