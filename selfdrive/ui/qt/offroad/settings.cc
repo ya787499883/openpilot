@@ -447,13 +447,13 @@ SettingsWindow::SettingsWindow(QWidget *parent) : QFrame(parent) {
   QObject::connect(this, &SettingsWindow::expandToggleDescription, toggles, &TogglesPanel::expandToggleDescription);
 
   QList<QPair<QString, QWidget *>> panels = {
-    {tr("Device"), device},
-    {tr("Network"), new Networking(this)},
-    {tr("Toggles"), toggles},
-    {tr("Software"), new SoftwarePanel(this)},
-    {tr("Map"), new FrogPilotNavigationPanel(this)},
-    {tr("Carrot"), new CarrotPanel(this)},
-    {tr("Cars"), new CarsPanel(this)},
+    {tr("设备"), device},
+    {tr("网络"), new Networking(this)},
+    {tr("切换"), toggles},
+    {tr("软件"), new SoftwarePanel(this)},
+    {tr("地图"), new FrogPilotNavigationPanel(this)},
+    {tr("胡萝卜"), new CarrotPanel(this)},
+    {tr("汽车"), new CarsPanel(this)},
   };
 
   nav_btns = new QButtonGroup(this);
